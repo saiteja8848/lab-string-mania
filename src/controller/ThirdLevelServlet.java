@@ -29,6 +29,7 @@ public class ThirdLevelServlet extends HttpServlet {
 		String seeAnswer = request.getParameter("seeanswer");
 		String end = request.getParameter("end");
 
+		StringAdvanceMethod stringadvance = new StringAdvanceMethod();
 		stringadvance.setInput1(input1);
 		stringadvance.setInput2(input2);
 
@@ -53,7 +54,7 @@ public class ThirdLevelServlet extends HttpServlet {
 
 		if (seeAnswer != null) {
 			if (indexOf != null) {
-				String output = stringadvance.indexOf(input1, input2);
+		         int  output = stringadvance.indexOf(input1, input2);
 				request.setAttribute("output", output);
 				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/views/level3.jsp");
 				rd.forward(request, response);

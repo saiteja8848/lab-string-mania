@@ -36,6 +36,7 @@ public class FirstLevelServlet extends HttpServlet {
 		String level = request.getParameter("level");
 		String choose = request.getParameter("choose");
 
+		StringMethod string = new StringMethod();
 		string.setInput(input);
 		
 		if (level != null)
@@ -77,7 +78,7 @@ public class FirstLevelServlet extends HttpServlet {
 
 		if (seeAnswer != null) {
 			if (firstCharacter != null) {
-				String output = string.firstCharacter(input);
+				char output = string.firstCharacter(input);
 				request.setAttribute("output", output);
 				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/views/level1.jsp");
 				rd.forward(request, response);
@@ -86,7 +87,7 @@ public class FirstLevelServlet extends HttpServlet {
 
 		if (seeAnswer != null) {
 			if (length != null) {
-				String output = string.length(input);
+				int output = string.length(input);
 				request.setAttribute("output", output);
 				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/views/level1.jsp");
 				rd.forward(request, response);
